@@ -1,35 +1,32 @@
 /*!
- * client.js
+ * my.moduule.js
  *
  * @author oosugi20@gmail.com
  */
 
-var NOWJS_SAMPLE = {};
+var NOWJS_SAMPLE = NOWJS_SAMPLE || {};
+NOWJS_SAMPLE.module = {};
 
-(function (MY, $, window, undefined) {
+(function (MY, MOD, $, window, undefined) {
 
-now.clientAlert = function (message) {
-	MY.alertButton.setMessage(message);
-	MY.alertButton.open();
-};
+/**
+ * MOD.alertAll
+ * @requires jquery-ui.js
+ */
+MOD.alertAll = (function () {
 
-now.clientAlertClose = function () {
-	MY.alertButton.close();
-};
-
-MY.alertButton = (function () {
-
-	var $button, $message, $display, $close;
+	var $module, $button, $message, $display, $close;
 
 	var SELF = {
 		/**
 		 * setup
 		 */
 		setup: function () {
-			$button = $('#alert-button');
-			$message = $('#alert-message');
-			$close = $('#alert-close');
-			$display = $('<div/>').attr({ id: 'alert-display' });
+			$module = $('#mod-alertAll');
+			$button = $module.find('#alert-button');
+			$message = $module.find('#alert-message');
+			$close = $module.find('#alert-close');
+			$display = $('<div/>').attr({ id: 'mod-alertAll-display' });
 
 			$display.dialog({
 				autoOpen: false
@@ -71,8 +68,4 @@ MY.alertButton = (function () {
 
 })();
 
-$(function () {
-	MY.alertButton.setup();
-});
-
-})(NOWJS_SAMPLE, jQuery, this);
+})(NOWJS_SAMPLE, NOWJS_SAMPLE.module, jQuery, this);

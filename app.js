@@ -41,3 +41,7 @@ console.log("Express server listening on port %d in %s mode", app.address().port
 everyone.now.serverAlert = function (message) {
   everyone.now.clientAlert(message);
 };
+
+everyone.now.serverAlertClose = function () {
+  everyone.now.clientAlertClose();
+};

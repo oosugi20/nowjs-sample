@@ -1,6 +1,12 @@
 h1= title
 hr
-h2 みんなにアラート
-p
-	input#alert-message(type='text', value='')
-	input#alert-button(type='button', value='go')
+
+div#mod-alertAll
+	h2 みんなにアラート
+	p
+		input#alert-message(type='text', value='')
+		input#alert-button(type='button', value='go')
+		input#alert-close(type='button', value='close')
+script
+	NOWJS_SAMPLE.module.alertAll.setup();
+	
